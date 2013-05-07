@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mymemory</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+<title>샤크릿</title>
+
+<%= stylesheet_link_tag    "application", :media => "all" %>
+<%= stylesheet_link_tag    "/bootstrap/css/bootstrap.min", :media => "all" %>
+<style> 
+  BODY{ padding-top:40px; } 
+  #body_container{ margin-bottom:50px; }
+</style>
+<%= stylesheet_link_tag    "/bootstrap/css/bootstrap-responsive.min", :media => "all" %>
+
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "/bootstrap/js/bootstrap.min" %>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%= csrf_meta_tags %>
+
 </head>
 <body>
-
+<%= render :partial => 'layouts/header' %>
+<div id="body_container">
 <%= yield %>
+</div>
+<%= render :partial => 'layouts/footer' %>
 
 </body>
 </html>

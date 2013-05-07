@@ -1,0 +1,67 @@
+<div class="container">
+  <hr>
+  <div class="row">
+    <div class="span3">
+      <div class="well" style="height:200px;padding-top:10px;">
+        <h3 class="text-center" style="text-decoration:underline">Login</h3>
+        <p class="text-center">로그인을 하시면 정말 좋습니다</p>
+        <div class="text-center">
+          <input type="text" class="span2" placeholder="아이디">
+          <input type="password" class="span2" placeholder="비밀번호">
+        </div>
+        <div style="width:165px;margin:0 auto;display:block;margin-top:10px;">
+          <button class="btn btn-small btn-primary" type="button" style="width:80px;">로그인</button>
+          <a href="/user/join"><button class="btn btn-small" type="button" style="width:80px;">가입하기</button></a>
+        </div>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="well" style="height:200px;cursor:pointer;padding-top:10px;" onclick="window.location.href='/study/view';">
+        <a href="#" class="delete_study btn btn-mini pull-right" style="z-index:20;"><i class="icon-remove"></i></a>
+        <div class="clearfix"></div>
+        <h3 class="text-center"> mybox.title </h3>
+        <p class="muted text-center"> mybox.subject </p>
+        <p><i class="icon-user"></i> User :  mybox.user_number </p>
+        <p><i class="icon-envelope"></i> Questions :  mybox.question_number </p>
+        <p> mybox.description </p>
+      </div>
+    </div>
+
+    <div class="span3">
+      <div class="well" style="height:200px;cursor:pointer;padding-top:10px;" onclick="window.location.href='/study/view';">
+        <a href="#" class="delete_study btn btn-mini pull-right" style="z-index:20;"><i class="icon-remove"></i></a>
+        <div class="clearfix"></div>
+        <h3 class="text-center">마음의 탐구</h3>
+        <p class="muted text-center">마음의 탐구 중간고사</p>
+        <p><i class="icon-user"></i> User : 121</p>
+        <p><i class="icon-envelope"></i> Questions : 89</p>
+        <p>마음의 탐구 중간고사때 외워야 할 필수 개념</p>
+      </div>
+    </div>
+
+
+
+  </div>
+  <hr>
+  <form class="navbar-form">
+    <input type="text" class="span4" data-provide="typeahead" placeholder="수업 이름으로 검색하세요.">
+  </form>
+  <div class="row">
+    <div class="span2">
+      <div class="well" style="margin-top:20px;height:170px;cursor:pointer;background-color:#fff2f2;" onclick="window.location.href='/study/new';">
+        <h3 class="text-center">만들기</h3>
+        <%= image_tag 'plus.png', :style=>"margin-left:auto;margin-right:auto;width:64px;margin-top:23px;display:block" -%>
+      </div>
+    </div>
+
+    <% 0.upto (5) do |x|%>
+    <div class="span2">
+      <div class="well" style="margin-top:20px;height:170px;cursor:pointer;background-color:#fff2f2;" onclick="wa();">
+        <h3 class="text-center">수업 <%= x-%></h3>
+        <p class="muted text-center">수업 <%= x-%> 시험 공부</p>
+        <p class="text-center">수업 <%= x-%>의 시험을 준비하기 위핸 개념들</p>
+      </div>
+    </div>
+    <% end -%>
+  </div>
+</div>
