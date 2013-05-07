@@ -48,20 +48,19 @@
   </form>
   <div class="row">
     <div class="span2">
-      <div class="well" style="margin-top:20px;height:170px;cursor:pointer;background-color:#fff2f2;" onclick="window.location.href='/study/new';">
+      <div class="well" style="margin-top:20px;height:170px;cursor:pointer;background-color:#fff2f2;" onclick="window.location.href='/courses/new';">
         <h3 class="text-center">만들기</h3>
         <%= image_tag 'plus.png', :style=>"margin-left:auto;margin-right:auto;width:64px;margin-top:23px;display:block" -%>
       </div>
     </div>
-
-    <% 0.upto (5) do |x|%>
+    <% @courses.each do |course| %>
     <div class="span2">
       <div class="well" style="margin-top:20px;height:170px;cursor:pointer;background-color:#fff2f2;" onclick="wa();">
-        <h3 class="text-center">수업 <%= x-%></h3>
-        <p class="muted text-center">수업 <%= x-%> 시험 공부</p>
-        <p class="text-center">수업 <%= x-%>의 시험을 준비하기 위핸 개념들</p>
+        <h3 class="text-center"><%= course.title %></h3>
+        <p class="muted text-center"><%= course.subject %></p>
+        <p class="text-center"><%= course.description %></p>
       </div>
     </div>
-    <% end -%>
+    <% end %>
   </div>
 </div>
