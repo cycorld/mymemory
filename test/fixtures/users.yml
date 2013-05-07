@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  username: MyString
+  password_hash: MyString
+  real_name: MyString
+  student_id: 1
+  department_id: 1
+  join_link: MyString
+  activated: false
+
+two:
+  username: MyString
+  password_hash: MyString
+  real_name: MyString
+  student_id: 1
+  department_id: 1
+  join_link: MyString
+  activated: false

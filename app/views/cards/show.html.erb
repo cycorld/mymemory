@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Course:</b>
+  <%= @card.course_id %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @card.question %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= @card.answer %>
+</p>
+
+<p>
+  <b>Hardness:</b>
+  <%= @card.hardness %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @card.rating %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>
