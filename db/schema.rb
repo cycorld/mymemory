@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507155625) do
+ActiveRecord::Schema.define(:version => 20130507165910) do
 
   create_table "cards", :force => true do |t|
     t.integer  "course_id"
@@ -45,5 +45,7 @@ ActiveRecord::Schema.define(:version => 20130507155625) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end
