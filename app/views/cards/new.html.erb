@@ -1,5 +1,20 @@
-<h1>New card</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', cards_path %>
+<div class="container">
+  <hr>
+  <div class="row">
+    <div class="span5">
+      <div class="well" style="height:500px;padding-top:10px;">
+        <h3 class="text-center">New Card</h3>
+        <p>새로운 암기 카드 만들기</p>
+        <div class="text-center">
+          <form action="/cards/create" method="POST">
+            <input type="text" class="span4" name="question" placeholder="질문">
+            <input type="text" class="span4" name="answer" placeholder="답변">
+            <input type="hidden" name="course_id" value="<%= params[:course_id] -%>">
+            <input class="btn btn-small btn-primary" style="width:80px;" type="submit" value="만들기">
+            <a class="btn btn-small btn-primary" href="/study/subscribe/<%= @course -%>" style="width:80px;">끝내기</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

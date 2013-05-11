@@ -1,33 +1,19 @@
-<h1>New course</h1>
-
-<%= form_for(@course) do |f| %>
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
-      <ul>
-      <% @course.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="container">
+  <hr>
+  <div class="row">
+    <div class="span5">
+      <div class="well" style="height:500px;padding-top:10px;">
+        <h3 class="text-center">New course</h3>
+        <p>새로운 과목을 만듭니다</p>
+        <div class="text-center">
+          <form action="/courses/create" method="POST">
+            <input type="text" class="span4" name="title" placeholder="과목 이름">
+            <input type="text" class="span4" name="subject" placeholder="주제">
+            <input type="text" class="span4" name="description" placeholder="상세 설명">
+            <input type="submit" value="만들기">
+          </form>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Back', courses_path %>
+</div>

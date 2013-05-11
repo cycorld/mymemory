@@ -24,12 +24,6 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.json
   def new
-    @course = Course.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @course }
-    end
   end
 
   # GET /courses/1/edit
@@ -40,17 +34,13 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(params[:course])
-
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
-        format.json { render json: @course, status: :created, location: @course }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
-    end
+    course = Course.new
+    course.title = params[:title]
+    course.subject = params[:subject]
+    course.description = params[:description]
+    course.user_id = 1
+    course.save
+    redirect_to "/cards/new/?course_id=#{course.id}"
   end
 
   # PUT /courses/1

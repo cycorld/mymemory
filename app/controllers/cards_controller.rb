@@ -24,12 +24,7 @@ class CardsController < ApplicationController
   # GET /cards/new
   # GET /cards/new.json
   def new
-    @card = Card.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @card }
-    end
+    @course = params[:course_id]
   end
 
   # GET /cards/1/edit
@@ -40,17 +35,15 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    @card = Card.new(params[:card])
-
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
-        format.json { render json: @card, status: :created, location: @card }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
-    end
+    card = Card.new
+    card.course_id = params[:course_id]
+    card.question = params[:question]
+    card.answer = params[:answer]
+    if card.save
+      redirect_to "/cards/new/?course_id=#{card.course_id}"
+    else
+      render :text => "T_T"
+    end 
   end
 
   # PUT /cards/1
