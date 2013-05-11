@@ -27,17 +27,19 @@
       </div>
     </div>
 
+    <% @subscribe.each do |s| -%>
     <div class="span3">
       <div class="well" style="height:200px;cursor:pointer;padding-top:10px;" onclick="window.location.href='/study/view';">
         <a href="#" class="delete_study btn btn-mini pull-right" style="z-index:20;"><i class="icon-remove"></i></a>
         <div class="clearfix"></div>
-        <h3 class="text-center">마음의 탐구</h3>
-        <p class="muted text-center">마음의 탐구 중간고사</p>
-        <p><i class="icon-user"></i> User : 121</p>
-        <p><i class="icon-envelope"></i> Questions : 89</p>
-        <p>마음의 탐구 중간고사때 외워야 할 필수 개념</p>
+        <h3 class="text-center"><%= s.title -%></h3>
+        <p class="muted text-center"><%= s.subject -%></p>
+        <p><i class="icon-user"></i> User : <%= s.user_number -%></p>
+        <p><i class="icon-envelope"></i> Questions : <%= s.question_number -%></p>
+        <p><%= s.description -%></p>
       </div>
     </div>
+    <% end -%>
 
 
 
@@ -55,7 +57,7 @@
     </div>
     <% @courses.each do |course| %>
     <div class="span2">
-      <div class="well" style="margin-top:20px;height:170px;cursor:pointer;background-color:#fff2f2;" onclick="wa();">
+      <div class="well" style="margin-top:20px;height:170px;cursor:pointer;background-color:#fff2f2;" onclick="window.location.href='/study/subscribe/<%= course.id %>';">
         <h3 class="text-center"><%= course.title %></h3>
         <p class="muted text-center"><%= course.subject %></p>
         <p class="text-center"><%= course.description %></p>

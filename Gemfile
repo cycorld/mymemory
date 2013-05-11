@@ -11,6 +11,7 @@ gem 'sqlite3'
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem "rails-erd"
 end
 
 

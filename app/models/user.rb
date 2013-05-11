@@ -15,6 +15,8 @@
 #
 
 class User < ActiveRecord::Base
+
+  has_many :subscribes
   attr_accessible :activated, :department_id, :join_link, :password_hash, :real_name, :student_id, :username
 
   before_save { |user| user.username = username.downcase }
