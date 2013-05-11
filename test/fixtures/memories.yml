@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: memories
+#
+#  id         :integer          not null, primary key
+#  course_id  :integer
+#  user_id    :integer
+#  card_id    :integer
+#  grade      :integer
+#  know       :integer
+#  dont_know  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:

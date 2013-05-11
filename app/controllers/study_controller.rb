@@ -5,6 +5,7 @@ class StudyController < ApplicationController
     #@subscribe = @user.courses
     course_ids = Subscribe.where(:user_id => 1, :activated => true).map{|x| x.course_id}
     @subscribe = Course.find_all_by_id(course_ids)
+    @last_card = 1
 
   end
 
@@ -29,4 +30,11 @@ class StudyController < ApplicationController
     del.save
     redirect_to '/study/index'
   end
+
+  def view
+    subscribe = Memory.where(:user_id => 1, :course_id => params[:id], :card_id => params[:card_id]).first
+    @view_card = Card.find_by_id(subscribe.card_id)
+    @next_card = 10
+  end
+
 end

@@ -15,22 +15,11 @@
         </div>
       </div>
     </div>
-    <div class="span3">
-      <div class="well" style="height:200px;cursor:pointer;padding-top:10px;" onclick="window.location.href='/study/view';">
-        <a href="#" class="delete_study btn btn-mini pull-right" style="z-index:20;"><i class="icon-remove"></i></a>
-        <div class="clearfix"></div>
-        <h3 class="text-center"> mybox.title </h3>
-        <p class="muted text-center"> mybox.subject </p>
-        <p><i class="icon-user"></i> User :  mybox.user_number </p>
-        <p><i class="icon-envelope"></i> Questions :  mybox.question_number </p>
-        <p> mybox.description </p>
-      </div>
-    </div>
 
     <% @subscribe.each do |s| -%>
     <div class="span3">
-      <div class="well" style="height:200px;cursor:pointer;padding-top:10px;" onclick="window.location.href='/study/view';">
-        <a href="#" class="delete_study btn btn-mini pull-right" style="z-index:20;"><i class="icon-remove"></i></a>
+      <div class="well" style="height:200px;cursor:pointer;padding-top:10px;" onclick="window.location.href='/study/view/<%= s.id -%>?card_id=<%= @last_card -%>';">
+        <a href="/study/unsubscribe/<%= s.id -%>" class="delete_study btn btn-mini pull-right" style="z-index:20;"><i class="icon-remove"></i></a>
         <div class="clearfix"></div>
         <h3 class="text-center"><%= s.title -%></h3>
         <p class="muted text-center"><%= s.subject -%></p>
