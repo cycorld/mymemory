@@ -10,6 +10,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def logout
+    session[:user_id] = nil
+    redirect_to :root
+  end
+
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -24,11 +30,11 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-    @user = User.new
+    @new_user = User.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @user }
+      format.json { render json: @new_user }
     end
   end
 
@@ -40,16 +46,16 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    user = User.new(params[:new_user])
+    user.username = params[:user][:username]
+    user.student_id = params[:user][:student_id]
+    user.department_id = params[:user][:department_id]
+    user.password = params[:user][:password]
+    user.activated = true
+    if user.save
+      redirect_to :root
+    else
+      render :text => "ERROR"
     end
   end
 
@@ -80,4 +86,23 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def current_user
+    @_current_user ||= session[:user_id] && User.find_by_id(session[:user_id])
+  end
+
+  def login
+    user = User.find_by_username(params[:username])
+    if user.password_hash == Digest::SHA1.hexdigest(params[:password])
+      session[:user_id] = user.id
+      session[:user_name] = user.username
+      redirect_to :root
+    else
+      redirect_to :root
+    end
+  end
+
+
+
 end

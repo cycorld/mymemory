@@ -24,6 +24,9 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.json
   def new
+    if session[:user_id] == nil
+      redirect_to :root #로그인해주세요!
+    end
   end
 
   # GET /courses/1/edit
@@ -38,7 +41,7 @@ class CoursesController < ApplicationController
     course.title = params[:title]
     course.subject = params[:subject]
     course.description = params[:description]
-    course.user_id = 1
+    course.user_id = session[:user_id]
     course.save
     redirect_to "/cards/new/?course_id=#{course.id}"
   end

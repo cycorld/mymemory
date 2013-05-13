@@ -2,6 +2,11 @@ Mymemory::Application.routes.draw do
   get "study/index"
   get "study/subscribe"
   get "study/unsubscribe"
+  get "study/view"
+  get "study/know"
+  get "study/dont_know"
+
+  get "users/logout"
 
   resources :cards
 

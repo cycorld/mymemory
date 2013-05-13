@@ -4,13 +4,13 @@
       <div class="text-center">
         <h2>회원 가입을 위한 마지막 절차입니다.</h2>
       </div>
-      <%= form_for(@user) do |f| %>
-        <% if @user.errors.any? %>
+      <%= form_for(@new_user) do |f| %>
+        <% if @new_user.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <h2><%= pluralize(@new_user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
             <ul>
-            <% @user.errors.full_messages.each do |msg| %>
+            <% @new_user.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
             </ul>
@@ -23,11 +23,9 @@
         </div>
         <div class="controls">
           <%= f.label :password %>
-          <%= f.password_field :password %>
+          <%= f.text_field :password %>
         </div>
         <div class="controls">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation %>
         </div>
         <div class="controls">
           <%= f.label :student_id %>

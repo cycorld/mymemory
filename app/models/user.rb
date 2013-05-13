@@ -19,10 +19,20 @@ class User < ActiveRecord::Base
   has_many :subscribes
   attr_accessible :activated, :department_id, :join_link, :password_hash, :real_name, :student_id, :username
 
-  before_save { |user| user.username = username.downcase }
+  #before_save { |user| user.username = username.downcase }
 
-  validates :username, presence: true, uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_hash, presence: true
+  #validates :username, presence: true, uniqueness: { case_sensitive: false }
+  #validates :password, presence: true, length: { minimum: 6 }
+  #validates :password_hash, presence: true
+
+  attr_reader :password
+
+  def password=(pass)
+    self.password_hash = Digest::SHA1.hexdigest(pass)
+  end
+
+  def verify_password(pass)
+    Digest::SHA1.hexdigest(pass) == password_hash
+  end
 
 end
