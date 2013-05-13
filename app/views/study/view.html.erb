@@ -10,14 +10,26 @@
         </div>
         <div class="clearfix"></div>
         <h1 style="text-align:center">Q: <%= @view_card.question -%></h1><br>
-        <h1 style="text-align:center" id="answer">A: <%= @view_card.answer -%></h1>
+        <h1 style="text-align:center;">A: <a id="answer" style="display:none;"><%= @view_card.answer -%></a></h1>
         <p style="text-align:center"><%= @subscribe.know -%>/<%= @subscribe.dont_know -%></p>
-        <p class="text-center" style="margin-top:50px;">
-          <a href="/study/know/<%= @subscribe.id -%>"><button class="btn btn-large btn btn-primary" type="button">안다</button></a>
-          <a href="/study/dont_know/<%= @subscribe.id -%>"><button class="btn btn-large" type="button">모른다</button></a>
+        <p class="text-center" style="margin-top:51px;">
+          <p id="front" class="text-center" style="display:bloack;">
+            <button style="width:180px" class="btn btn-large btn btn-primary" type="button" onclick="view_answer();">답보기</button>
+          </p>
+          <p id="back" class="text-center" style="display:none;">
+            <a href="/study/know/<%= @subscribe.id -%>"><button class="btn btn-large btn btn-primary" type="button">안다</button></a>
+            <a href="/study/dont_know/<%= @subscribe.id -%>"><button class="btn btn-large" type="button">모른다</button></a>
+          </p>
         </p>
       </div>
     </div>
     <%= render :partial => 'study/side_bar' -%>
   </div>
 </div>
+<script>
+function view_answer() {
+  $('#answer').show();
+  $('#front').hide();
+  $('#back').show();
+}
+</script>

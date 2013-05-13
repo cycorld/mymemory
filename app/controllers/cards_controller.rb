@@ -40,6 +40,9 @@ class CardsController < ApplicationController
     card.question = params[:question]
     card.answer = params[:answer]
     if card.save
+      course = Course.find_by_id(params[:course_id])
+      course.question_number += 1
+      course.save
       redirect_to "/cards/new/?course_id=#{card.course_id}"
     else
       render :text => "T_T"

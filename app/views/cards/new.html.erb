@@ -7,8 +7,8 @@
         <p>새로운 암기 카드 만들기</p>
         <div class="text-center">
           <form action="/cards/create" method="POST">
-            <input type="text" class="span4" name="question" placeholder="질문">
-            <input type="text" class="span4" name="answer" placeholder="답변">
+            <input type="text" class="span4" name="question" id="question" placeholder="질문">
+            <input type="text" class="span4" name="answer" id="answer" placeholder="답변">
             <input type="hidden" name="course_id" value="<%= params[:course_id] -%>">
             <input class="btn btn-small btn-primary" style="width:80px;" type="submit" value="만들기">
             <a class="btn btn-small btn-primary" href="/study/subscribe/<%= @course -%>" style="width:80px;">끝내기</a>
@@ -18,3 +18,6 @@
     </div>
   </div>
 </div>
+<script>
+$(document).ready(function () {$('#question').focus(); });
+</script>

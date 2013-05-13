@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(:version => 20130511134345) do
     t.string   "title"
     t.string   "subject"
     t.string   "description"
-    t.integer  "user_number"
-    t.integer  "question_number"
+    t.integer  "user_number",     :default => 0
+    t.integer  "question_number", :default => 0
     t.integer  "user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "memories", :force => true do |t|

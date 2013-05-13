@@ -6,6 +6,7 @@ Mymemory::Application.routes.draw do
   get "study/know"
   get "study/dont_know"
 
+  get "users/setting"
   get "users/logout"
 
   resources :cards

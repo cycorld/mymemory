@@ -31,6 +31,10 @@ class StudyController < ApplicationController
           memory.dont_know = 0
           memory.save
         end
+        #사용 유저 수 증가
+        course = Course.find_by_id(params[:id])
+        course.user_number += 1
+        course.save
       else
         sub = Subscribe.where(:user_id => session[:user_id], :course_id => params[:id]).first
         sub.activated = true

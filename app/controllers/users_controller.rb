@@ -53,6 +53,8 @@ class UsersController < ApplicationController
     user.password = params[:user][:password]
     user.activated = true
     if user.save
+      session[:user_id] = user.id
+      session[:user_name] = user.username
       redirect_to :root
     else
       render :text => "ERROR"
@@ -101,6 +103,10 @@ class UsersController < ApplicationController
     else
       redirect_to :root
     end
+  end
+
+  def setting
+
   end
 
 

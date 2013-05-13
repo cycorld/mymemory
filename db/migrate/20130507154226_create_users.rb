@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :student_id
       t.integer :department_id
       t.string :join_link
-      t.boolean :activated
+      t.boolean :activated, :default => false
 
       t.timestamps
     end
