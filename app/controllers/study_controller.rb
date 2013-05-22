@@ -42,7 +42,7 @@ class StudyController < ApplicationController
         sub.activated = true
         sub.save
       end
-      redirect_to '/study/index'
+      redirect_to :root
     end
   end
 
