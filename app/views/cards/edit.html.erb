@@ -1,6 +1,23 @@
-<h1>Editing card</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @card %> |
-<%= link_to 'Back', cards_path %>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div class="well" style="margin-top:20px;">
+        <div class="clearfix"></div>
+        <%= form_for(@card) do |f| %>
+        <h1>Editing card</h1>
+          <div class="field">
+            <%= f.label :question %><br />
+            <%= f.text_field :question %>
+          </div>
+          <div class="field">
+            <%= f.label :answer %><br />
+            <%= f.text_field :answer %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>

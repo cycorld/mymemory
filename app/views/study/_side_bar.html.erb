@@ -2,24 +2,39 @@
       <div class="well" style="margin-top:20px;">
         <div class="btn-toolbar pull-right" style="margin-bottom:30px;">
           <div class="btn-group">
-            <a class="btn" href="#" alt="hi"><i class="icon-off" alt="hihi"></i></a>
-            <a class="btn" href="#"><i class="icon-plus"></i></a>
+            <a class="btn" href="#" alt="hi" onclick="$('#statics').slideToggle();"><i class="icon-off" alt="hihi"></i></a>
+            <!--<a class="btn" href="#"><i class="icon-plus"></i></a>-->
           </div>
         </div>
+        <h3>statistics</h3>
         <div class="clearfix"></div>
-        <h4>statistics</h4>
-        <p>예상점수 :  85 / 100 점</p>
-        <div class="progress">
-          <div class="bar" style="width:85%;"></div>
-        </div>
-        <p>현재 공부상황</p>
-        <p>
-          <span class="label label-success">안다</span>&nbsp;<span class="label label-warning">모른다</span>&nbsp;<span class="label label-important">아직안봤다</span>
-        </p>
-        <div class="progress">
-          <div class="bar bar-success" style="width: 35%;"></div>
-          <div class="bar bar-warning" style="width: 20%;"></div>
-          <div class="bar bar-danger" style="width: 45%;"></div>
+        <div id="statics">
+          <p>예상점수 :  <%=@score-%> / 100 점</p>
+          <div class="progress">
+            <div class="bar" style="width:<%=@score-%>%;"></div>
+          </div>
+          <p>현재 공부상황</p>
+          <p style="text-align:center">Know : <%= @mem.know -%> / Dont know : <%= @mem.dont_know -%> / grade : <%= @mem.grade -%></p>
+          <p>
+            <span class="label label-success">안다</span>&nbsp;<span class="label label-warning">모른다</span>&nbsp;<span class="label label-important">아직안봤다</span>
+          </p>
+          <div class="progress">
+            <div class="bar bar-success" style="width: <%= @know -%>%;"></div>
+            <div class="bar bar-warning" style="width: <%= @dont_know -%>%;"></div>
+            <div class="bar bar-danger" style="width: <%= @dont_see -%>%;"></div>
+          </div>
+          <p>내 머릿 속</p>
+          <p>
+            <span class="label label-important">1단계</span>&nbsp;<span class="label label-warning">2단계</span>&nbsp;<span class="label label-success">3단계</span>&nbsp;<span class="label label-info">4단계</span>&nbsp;<span class="label btn-primary">5단계</span>
+          </p>
+          <p><%= @myhead -%></p>
+          <div class="progress">
+            <div class="bar bar-danger" style="width: <%=@grade_one-%>%;"></div>
+            <div class="bar bar-warning" style="width: <%=@grade_two-%>%;"></div>
+            <div class="bar bar-success" style="width: <%=@grade_three-%>%;"></div>
+            <div class="bar bar-info" style="width: <%=@grade_four-%>%;"></div>
+            <div class="bar" style="width: <%=@grade_five-%>%;"></div>
+          </div>
         </div>
       </div>
     </div>

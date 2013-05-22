@@ -3,17 +3,21 @@
     <div class="container">
       <a class="brand" href="/">샤크릿</a>
       <ul class="nav">
+        <% if session[:user_id] %>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">내 노트&nbsp;<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="/study/view">대학국어</a></li>
-            <li><a href="/study/view">대학영어</a></li>
-            <li><a href="/study/view">대중예술의 이해</a></li>
-            <li class="divider"></li>
-            <li><a href="/courses/new">새 노트 추가+</a></li>
-          </ul> 
-          <li><a href="/users/setting">설정</a></li>
+            <ul class="dropdown-menu">
+              <% @subscribe.each do |s| %>
+                <li><a href="/study/view/<%= s.id -%>?card_id=0"><%= s.title -%></a></li>
+              <% end %>
+              <li class="divider"></li>
+              <li><a href="/courses/new">새 노트 추가+</a></li>
+            </ul> 
+            <li><a href="/users/setting">설정</a></li>
         </li>
+        <% else %>
+        <li><a href="/users/new">회원가입</a></li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -96,7 +96,9 @@ class UsersController < ApplicationController
 
   def login
     user = User.find_by_username(params[:username])
-    if user.password_hash == Digest::SHA1.hexdigest(params[:password])
+    if user == nil
+      redirect_to :root
+    elsif user.password_hash == Digest::SHA1.hexdigest(params[:password])
       session[:user_id] = user.id
       session[:user_name] = user.username
       redirect_to :root

@@ -4,9 +4,9 @@ class CreateMemories < ActiveRecord::Migration
       t.integer :course_id
       t.integer :user_id
       t.integer :card_id
-      t.integer :grade
-      t.integer :know
-      t.integer :dont_know
+      t.integer :grade, :default => 1
+      t.integer :know, :default => 0
+      t.integer :dont_know, :default => 0
 
       t.timestamps
     end
